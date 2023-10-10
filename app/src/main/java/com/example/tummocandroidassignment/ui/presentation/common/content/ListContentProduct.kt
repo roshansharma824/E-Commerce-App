@@ -18,7 +18,7 @@ import com.example.tummocandroidassignment.ui.presentation.common.card.ProductCa
 import com.example.tummocandroidassignment.ui.theme.Black
 import com.example.tummocandroidassignment.ui.theme.DIMENS_16dp
 import com.example.tummocandroidassignment.ui.theme.DIMENS_2dp
-import com.example.tummocandroidassignment.ui.theme.DIMENS_8dp
+import com.example.tummocandroidassignment.ui.theme.*
 import com.example.tummocandroidassignment.ui.theme.GilroyFontFamily
 import com.example.tummocandroidassignment.ui.theme.Green
 import com.example.tummocandroidassignment.ui.theme.TEXT_SIZE_12sp
@@ -58,8 +58,8 @@ fun ListContentProduct(
             )
         }
         LazyRow(
-            horizontalArrangement = Arrangement.spacedBy(DIMENS_2dp),
-            contentPadding = PaddingValues(DIMENS_8dp)
+            horizontalArrangement = Arrangement.spacedBy(DIMENS_16dp),
+            contentPadding = PaddingValues(DIMENS_16dp)
         ) {
             items(products) { product ->
                 ProductCard(

@@ -8,10 +8,16 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -23,13 +29,15 @@ import com.example.tummocandroidassignment.R
 import com.example.tummocandroidassignment.ui.domain.model.ProductItem
 import com.example.tummocandroidassignment.ui.navigation.screen.Screen
 import com.example.tummocandroidassignment.ui.theme.Black
+import com.example.tummocandroidassignment.ui.theme.DIMENS_108dp
 import com.example.tummocandroidassignment.ui.theme.DIMENS_10dp
 import com.example.tummocandroidassignment.ui.theme.DIMENS_12dp
-import com.example.tummocandroidassignment.ui.theme.DIMENS_14dp
+import com.example.tummocandroidassignment.ui.theme.*
 import com.example.tummocandroidassignment.ui.theme.DIMENS_174dp
 import com.example.tummocandroidassignment.ui.theme.DIMENS_20dp
 import com.example.tummocandroidassignment.ui.theme.DIMENS_24dp
 import com.example.tummocandroidassignment.ui.theme.DIMENS_46dp
+import com.example.tummocandroidassignment.ui.theme.DIMENS_4dp
 import com.example.tummocandroidassignment.ui.theme.DIMENS_6dp
 import com.example.tummocandroidassignment.ui.theme.DIMENS_80dp
 import com.example.tummocandroidassignment.ui.theme.GilroyFontFamily
@@ -50,84 +58,124 @@ fun ProductCard(
     Card(
         shape = RoundedCornerShape(DIMENS_12dp),
         border = BorderStroke(width = 1.dp, color = GrayBorderStroke),
+        elevation = DIMENS_6dp,
         modifier = modifier
-            .padding(DIMENS_12dp)
-            .width(DIMENS_174dp)
+            .width(DIMENS_144dp)
             .clickable {
                 navController.navigate(Screen.Details.passProductId(productId = productItem.id))
             }
     ) {
-        Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(DIMENS_12dp)
-        ) {
-            Image(
-                painter = painterResource(id = productItem.image),
-                contentDescription = stringResource(R.string.image_product),
+        Column {
+
+            Row {
+
+                Image(
+                    painter = painterResource(id = productItem.image),
+                    contentDescription = stringResource(R.string.image_product),
+                    modifier = Modifier
+                        .fillMaxWidth(0.8f)
+                        .height(DIMENS_108dp)
+                        .padding(DIMENS_12dp),
+                    contentScale = ContentScale.FillBounds,
+
+                )
+                FavoriteButton()
+            }
+
+            Column(
                 modifier = Modifier
-                    .align(Alignment.CenterHorizontally)
                     .fillMaxWidth()
-                    .height(DIMENS_80dp)
-            )
-
-            Spacer(modifier = Modifier.height(DIMENS_24dp))
-
-            Text(
-                text = productItem.title,
-                fontFamily = GilroyFontFamily,
-                fontWeight = FontWeight.Bold,
-                color = Black,
-                fontSize = TEXT_SIZE_16sp
-            )
-
-            Spacer(modifier = Modifier.height(DIMENS_6dp))
-
-            Text(
-                text = productItem.unit,
-                fontFamily = GilroyFontFamily,
-                fontWeight = FontWeight.Medium,
-                color = GraySecondTextColor,
-                fontSize = TEXT_SIZE_12sp
-            )
-
-            Spacer(modifier = Modifier.height(DIMENS_20dp))
-
-            Row(
-                horizontalArrangement = Arrangement.SpaceBetween,
-                modifier = Modifier.fillMaxWidth()
+                    .padding(DIMENS_12dp)
             ) {
+
+
+
+
+
+
+
                 Text(
-                    text = "$${productItem.price}",
+                    text = productItem.title,
                     fontFamily = GilroyFontFamily,
                     fontWeight = FontWeight.Bold,
                     color = Black,
-                    modifier = Modifier.align(Alignment.CenterVertically),
-                    fontSize = TEXT_SIZE_18sp
+                    fontSize = TEXT_SIZE_16sp
                 )
 
-                Button(
-                    modifier = Modifier.size(DIMENS_46dp),
-                    colors = ButtonDefaults.buttonColors(backgroundColor = Green),
-                    shape = RoundedCornerShape(DIMENS_14dp),
-                    contentPadding = PaddingValues(DIMENS_10dp),
-                    onClick = {
-                        onClickToCart.invoke(productItem)
-                    }
-                )
-                {
-                    Icon(
-                        modifier = Modifier.fillMaxSize(),
-                        imageVector = Icons.Default.Add,
-                        tint = Color.White,
-                        contentDescription = stringResource(id = R.string.add)
+                Spacer(modifier = Modifier.height(DIMENS_6dp))
+
+                Row(
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Text(
+                        text = "₹${productItem.price}",
+                        fontFamily = GilroyFontFamily,
+                        fontWeight = FontWeight.Bold,
+                        color = Black,
+                        modifier = Modifier.align(Alignment.CenterVertically),
+                        fontSize = TEXT_SIZE_16sp
                     )
-                }
-            }
 
+                    Button(
+                        modifier = Modifier.size(DIMENS_24dp),
+                        colors = ButtonDefaults.buttonColors(backgroundColor = Green),
+                        shape = RoundedCornerShape(DIMENS_6dp),
+                        contentPadding = PaddingValues(DIMENS_4dp),
+                        onClick = {
+                            onClickToCart.invoke(productItem)
+                        }
+                    )
+                    {
+                        Icon(
+                            modifier = Modifier.fillMaxSize(),
+                            imageVector = Icons.Default.Add,
+                            tint = Color.White,
+                            contentDescription = stringResource(id = R.string.add)
+                        )
+                    }
+                }
+
+            }
         }
     }
 }
+
+@Composable
+fun FavoriteButton(
+    modifier: Modifier = Modifier,
+    color: Color = Color(0xFFE91E1E)
+) {
+
+    val isFavorite = remember {
+        mutableStateOf(false)
+    }
+
+    IconToggleButton(
+        checked = isFavorite.value,
+        onCheckedChange = {
+            isFavorite.value = !isFavorite.value
+        },
+        modifier = Modifier.padding(0.dp)
+    ) {
+        Icon(
+            tint = color,
+            modifier = modifier.graphicsLayer {
+                scaleX = 0.8f
+                scaleY = 0.8f
+            },
+            imageVector = if (isFavorite.value) {
+                Icons.Filled.Favorite
+            } else {
+                Icons.Default.FavoriteBorder
+            },
+            contentDescription = "Favorite Button"
+        )
+    }
+
+}
+
+
 
 @Preview
 @Composable
