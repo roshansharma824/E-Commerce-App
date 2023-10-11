@@ -22,7 +22,7 @@ class SplashViewModel @Inject constructor(
 
     init {
         viewModelScope.launch {
-            useCases.insertProductsUseCase.invoke(DataDummy.generateDummyProduct())
+//            useCases.insertProductsUseCase.invoke(DataDummy.generateDummyProduct())
         }
 
         viewModelScope.launch(Dispatchers.IO) {

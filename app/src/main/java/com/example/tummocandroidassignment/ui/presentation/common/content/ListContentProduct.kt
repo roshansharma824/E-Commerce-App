@@ -30,7 +30,9 @@ fun ListContentProduct(
     title: String,
     products: List<ProductItem>,
     navController: NavController,
-    onClickToCart: (ProductItem) -> Unit
+    onClickToCart: (ProductItem) -> Unit,
+    onClickToFavorite: (ProductItem) ->Unit,
+    onClickDeleteFavorite: (ProductItem) -> Unit,
 ) {
     Column(
         modifier = modifier.fillMaxWidth()
@@ -65,7 +67,9 @@ fun ListContentProduct(
                 ProductCard(
                     productItem = product,
                     navController = navController,
-                    onClickToCart = onClickToCart
+                    onClickToCart = onClickToCart,
+                    onClickToFavorite = onClickToFavorite,
+                    onClickDeleteFavorite = onClickDeleteFavorite
                 )
             }
         }
@@ -110,6 +114,8 @@ fun ListContentProductPreview() {
             )
         ),
         navController = rememberNavController(),
-        onClickToCart = {}
+        onClickToCart = {},
+        onClickToFavorite = {},
+        onClickDeleteFavorite = {},
     )
 }

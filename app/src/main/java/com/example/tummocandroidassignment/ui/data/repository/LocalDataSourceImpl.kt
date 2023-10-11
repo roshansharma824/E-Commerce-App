@@ -22,11 +22,22 @@ class LocalDataSourceImpl(
     override fun getAllProductCart(isCart: Boolean): Flow<List<ProductItem>> =
         productDao.getAllProductCart(isCart)
 
+    override fun getAllProductFavorite(isFavorite: Boolean): Flow<List<ProductItem>> =
+        productDao.getAllProductFavorite(isFavorite)
+
+
     override suspend fun addCart(productItem: ProductItem) = productDao.addCart(productItem)
+
+    override suspend fun addFavorite(productItem: ProductItem) = productDao.addFavorite(productItem)
 
     override suspend fun deleteCart(productItem: ProductItem) {
         productItem.isCart = false
         productDao.deleteCart(productItem)
+    }
+
+    override suspend fun deleteFavorite(productItem: ProductItem) {
+        productItem.isFavorite = false
+        productDao.deleteFavorite(productItem)
     }
 
     override fun searchProduct(query: String): Flow<List<ProductItem>> =

@@ -28,9 +28,15 @@ class Repository @Inject constructor(
     fun getAllProductCart(isCart: Boolean): Flow<List<ProductItem>> =
         localDataSource.getAllProductCart(isCart)
 
+    fun getAllProductFavorite(isFavorite: Boolean): Flow<List<ProductItem>> =
+        localDataSource.getAllProductFavorite(isFavorite)
+
     suspend fun addCart(productItem: ProductItem) = localDataSource.addCart(productItem)
 
+    suspend fun addFavorite(productItem: ProductItem) = localDataSource.addFavorite(productItem)
+
     suspend fun deleteCart(productItem: ProductItem) = localDataSource.deleteCart(productItem)
+    suspend fun deleteFavorite(productItem: ProductItem) = localDataSource.deleteFavorite(productItem)
 
     fun searchProduct(query: String): Flow<List<ProductItem>> = localDataSource.searchProduct(query)
 

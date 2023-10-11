@@ -48,13 +48,7 @@ fun SearchScreen(
 
             Spacer(modifier = Modifier.height(DIMENS_16dp))
 
-            if (searchQuery.isNotEmpty()) ListContentProduct(
-                title = "",
-                products = productsList,
-                navController = rememberNavController(),
-                onClickToCart = {}
-            )
-            else EmptyContent()
+             EmptyContent()
         }
     }
 

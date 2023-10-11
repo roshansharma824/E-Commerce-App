@@ -11,9 +11,12 @@ import com.example.tummocandroidassignment.ui.data.repository.Repository
 import com.example.tummocandroidassignment.ui.domain.repository.OnBoardingOperations
 import com.example.tummocandroidassignment.ui.domain.usecase.UseCases
 import com.example.tummocandroidassignment.ui.domain.usecase.addcartusecase.AddCartUseCase
+import com.example.tummocandroidassignment.ui.domain.usecase.addfavoriteusecase.AddFavoriteUseCase
 import com.example.tummocandroidassignment.ui.domain.usecase.deletecartusecase.DeleteCartUseCase
+import com.example.tummocandroidassignment.ui.domain.usecase.deletefavoriteusecase.DeleteFavoriteUseCase
 import com.example.tummocandroidassignment.ui.domain.usecase.getallcartusecase.GetAllCartUseCase
 import com.example.tummocandroidassignment.ui.domain.usecase.getallproduct.GetAllProductUseCase
+import com.example.tummocandroidassignment.ui.domain.usecase.getallproductfavoriteusecase.GetAllProductFavoriteUseCase
 import com.example.tummocandroidassignment.ui.domain.usecase.getselectedproduct.GetSelectedProductUseCase
 import com.example.tummocandroidassignment.ui.domain.usecase.readonboarding.ReadOnBoardingUseCase
 import com.example.tummocandroidassignment.ui.domain.usecase.saveonboarding.SaveOnBoardingUseCase
@@ -42,8 +45,11 @@ object RepositoryModule {
             getAllProductUseCase = GetAllProductUseCase(repository),
             getAllCartUseCase = GetAllCartUseCase(repository),
             addCartUseCase = AddCartUseCase(repository),
+            addFavoriteUseCase = AddFavoriteUseCase(repository),
             deleteCart = DeleteCartUseCase(repository),
-            searchProductUseCase = SearchProductUseCase(repository)
+            searchProductUseCase = SearchProductUseCase(repository),
+            getAllProductFavoriteUseCase = GetAllProductFavoriteUseCase(repository),
+            deleteFavorite = DeleteFavoriteUseCase(repository),
         )
     }
 

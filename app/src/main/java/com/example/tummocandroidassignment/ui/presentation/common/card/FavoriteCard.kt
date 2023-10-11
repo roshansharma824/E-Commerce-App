@@ -42,6 +42,7 @@ import com.example.tummocandroidassignment.ui.theme.TEXT_SIZE_16sp
 fun FavoriteCard(
     modifier: Modifier = Modifier,
     productItem: ProductItem,
+    onClickDeleteFavorite: (ProductItem) -> Unit
 ) {
 
     Card(
@@ -103,14 +104,14 @@ fun FavoriteCard(
                 ) {
 
 
-                    FavoriteButton()
+                    FavoriteButton(productItem = productItem, onClickDeleteFavorite = onClickDeleteFavorite, onClickToFavorite = onClickDeleteFavorite)
                     Button(
                         modifier = Modifier.size(DIMENS_24dp),
                         colors = ButtonDefaults.buttonColors(backgroundColor = Green),
                         shape = RoundedCornerShape(DIMENS_6dp),
                         contentPadding = PaddingValues(DIMENS_4dp),
                         onClick = {
-//                            onClickToCart.invoke(productItem)
+//                            onClickDeleteFavorite.invoke(productItem)
                         }
                     )
                     {
@@ -145,6 +146,7 @@ fun FavoriteCardPreview() {
             price = 4.99,
             nutritions = "100gr",
             review = 4.0
-        )
+        ),
+        onClickDeleteFavorite = {}
     )
 }

@@ -71,6 +71,20 @@ fun HomeScreen(
                 navController = navController,
                 onClickToCart = { productItem ->
                     clickToCart(mContext, productItem, homeViewModel)
+                },
+                onClickToFavorite = { productItem ->
+                    clickToFavorite(
+                        mContext,
+                        productItem,
+                        homeViewModel
+                    )
+                },
+                onClickDeleteFavorite = { productItem ->
+                    clickDeleteFavorite(
+                        mContext,
+                        productItem,
+                        homeViewModel
+                    )
                 }
             )
 
@@ -82,6 +96,20 @@ fun HomeScreen(
                 navController = navController,
                 onClickToCart = { productItem ->
                     clickToCart(mContext, productItem, homeViewModel)
+                },
+                onClickToFavorite = { productItem ->
+                    clickToFavorite(
+                        mContext,
+                        productItem,
+                        homeViewModel
+                    )
+                },
+                onClickDeleteFavorite = { productItem ->
+                    clickDeleteFavorite(
+                        mContext,
+                        productItem,
+                        homeViewModel
+                    )
                 }
             )
         }
@@ -130,6 +158,14 @@ fun HeaderLocationHome(
 fun clickToCart(context: Context, productItem: ProductItem, viewModel: HomeViewModel) {
     context.showToastShort("Success Add To Cart ${productItem.title}")
     viewModel.addCart(productItem.copy(isCart = true))
+}
+
+fun clickToFavorite(context: Context, productItem: ProductItem, viewModel: HomeViewModel) {
+    viewModel.addFavorite(productItem.copy(isFavorite = true))
+}
+
+fun clickDeleteFavorite(context: Context, productItem: ProductItem, viewModel: HomeViewModel) {
+    viewModel.deleteFavorite(productItem.copy(isFavorite = true))
 }
 
 @Preview(showBackground = true)

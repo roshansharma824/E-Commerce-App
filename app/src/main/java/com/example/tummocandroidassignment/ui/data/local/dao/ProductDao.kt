@@ -19,11 +19,20 @@ interface ProductDao {
     @Query("SELECT * FROM product_table WHERE isCart=:isCart")
     fun getAllProductCart(isCart: Boolean): Flow<List<ProductItem>>
 
+    @Query("SELECT * FROM product_table WHERE isFavorite=:isFavorite")
+    fun getAllProductFavorite(isFavorite: Boolean): Flow<List<ProductItem>>
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun addCart(productItem: ProductItem)
 
     @Update
     suspend fun deleteCart(productItem: ProductItem)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun addFavorite(productItem: ProductItem)
+
+    @Update
+    suspend fun deleteFavorite(productItem: ProductItem)
 
     @Query("SELECT * FROM product_table WHERE title LIKE '%' || :query || '%'")
     fun searchProduct(query: String): Flow<List<ProductItem>>

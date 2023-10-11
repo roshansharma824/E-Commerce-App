@@ -53,7 +53,9 @@ fun ProductCard(
     modifier: Modifier = Modifier,
     productItem: ProductItem,
     navController: NavController,
-    onClickToCart: (ProductItem) -> Unit
+    onClickToCart: (ProductItem) -> Unit,
+    onClickToFavorite: (ProductItem) ->Unit,
+    onClickDeleteFavorite: (ProductItem) -> Unit,
 ) {
     Card(
         shape = RoundedCornerShape(DIMENS_12dp),
@@ -79,7 +81,7 @@ fun ProductCard(
                     contentScale = ContentScale.FillBounds,
 
                 )
-                FavoriteButton()
+                FavoriteButton(productItem=productItem,onClickToFavorite = onClickToFavorite, onClickDeleteFavorite = onClickDeleteFavorite)
             }
 
             Column(
@@ -144,17 +146,25 @@ fun ProductCard(
 @Composable
 fun FavoriteButton(
     modifier: Modifier = Modifier,
-    color: Color = Color(0xFFE91E1E)
+    color: Color = Color(0xFFE91E1E),
+    productItem: ProductItem,
+    onClickToFavorite: (ProductItem) ->Unit,
+    onClickDeleteFavorite: (ProductItem) ->Unit,
 ) {
 
     val isFavorite = remember {
-        mutableStateOf(false)
+        mutableStateOf(productItem.isFavorite)
     }
 
     IconToggleButton(
         checked = isFavorite.value,
         onCheckedChange = {
             isFavorite.value = !isFavorite.value
+            if (isFavorite.value){
+                onClickToFavorite.invoke(productItem)
+            }else{
+                onClickDeleteFavorite.invoke(productItem)
+            }
         },
         modifier = Modifier.padding(0.dp)
     ) {
@@ -192,6 +202,8 @@ fun ItemProductPreview() {
             review = 4.0
         ),
         navController = rememberNavController(),
-        onClickToCart = {}
+        onClickToCart = {},
+        onClickToFavorite = {},
+        onClickDeleteFavorite = {}
     )
 }
