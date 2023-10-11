@@ -42,14 +42,15 @@ import com.example.tummocandroidassignment.ui.theme.TEXT_SIZE_16sp
 fun FavoriteCard(
     modifier: Modifier = Modifier,
     productItem: ProductItem,
-    onClickDeleteFavorite: (ProductItem) -> Unit
+    onClickDeleteFavorite: (ProductItem) -> Unit,
+    onClickToCart: (ProductItem) -> Unit,
 ) {
 
     Card(
         shape = RoundedCornerShape(DIMENS_12dp),
         border = BorderStroke(width = 1.dp, color = GrayBorderStroke),
         elevation = DIMENS_6dp,
-        modifier = modifier
+        modifier = modifier.padding(start = DIMENS_16dp, end = DIMENS_16dp, bottom = DIMENS_16dp)
             .clickable {
 //                navController.navigate(Screen.Details.passProductId(productId = productItem.id))
             }
@@ -111,7 +112,7 @@ fun FavoriteCard(
                         shape = RoundedCornerShape(DIMENS_6dp),
                         contentPadding = PaddingValues(DIMENS_4dp),
                         onClick = {
-//                            onClickDeleteFavorite.invoke(productItem)
+                            onClickToCart.invoke(productItem)
                         }
                     )
                     {
@@ -147,6 +148,7 @@ fun FavoriteCardPreview() {
             nutritions = "100gr",
             review = 4.0
         ),
-        onClickDeleteFavorite = {}
+        onClickDeleteFavorite = {},
+        onClickToCart = {}
     )
 }

@@ -39,4 +39,12 @@ class CartViewModel @Inject constructor(
         }
     }
 
+    fun addCart(productItem: ProductItem) {
+        viewModelScope.launch(Dispatchers.IO) {
+            useCases.addCartUseCase.invoke(productItem)
+        }
+    }
+
+
+
 }

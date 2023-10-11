@@ -39,7 +39,8 @@ import com.example.tummocandroidassignment.ui.theme.TEXT_SIZE_18sp
 fun ListContentFavorite(
     modifier: Modifier = Modifier,
     favoriteProducts: List<ProductItem>,
-    onClickDeleteFavorite: (ProductItem) -> Unit
+    onClickDeleteFavorite: (ProductItem) -> Unit,
+    onClickToCart: (ProductItem) -> Unit,
 ) {
     if (favoriteProducts.isNotEmpty()) {
         LazyColumn(
@@ -51,6 +52,9 @@ fun ListContentFavorite(
                 FavoriteCard(productItem = items,
                     onClickDeleteFavorite = { productItem ->
                         onClickDeleteFavorite.invoke(productItem)
+                    },
+                    onClickToCart = { productItem ->
+                        onClickToCart.invoke(productItem)
                     }
                 )
             }
@@ -63,5 +67,5 @@ fun ListContentFavorite(
 @Preview(showBackground = true)
 @Composable
 fun ListContentFavoritePreview() {
-    ListContentFavorite(favoriteProducts = emptyList(), onClickDeleteFavorite = {})
+    ListContentFavorite(favoriteProducts = emptyList(), onClickDeleteFavorite = {},onClickToCart={})
 }

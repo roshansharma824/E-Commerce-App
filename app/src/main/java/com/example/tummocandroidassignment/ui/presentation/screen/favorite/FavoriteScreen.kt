@@ -56,9 +56,13 @@ fun FavoriteScreen(
             Spacer(modifier = Modifier.height(DIMENS_16dp))
 
             ListContentFavorite(
+
                 favoriteProducts = productFavoriteList,
                 onClickDeleteFavorite = { productItem ->
                     favoriteViewModel.deleteFavorite(productItem.copy(isFavorite = false))
+                },
+                onClickToCart = { productItem ->
+                    favoriteViewModel.addCart(productItem.copy(isCart = true))
                 }
             )
         }

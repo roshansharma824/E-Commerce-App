@@ -156,7 +156,6 @@ fun HeaderLocationHome(
 }
 
 fun clickToCart(context: Context, productItem: ProductItem, viewModel: HomeViewModel) {
-    context.showToastShort("Success Add To Cart ${productItem.title}")
     viewModel.addCart(productItem.copy(isCart = true))
 }
 

@@ -1,25 +1,31 @@
 package com.example.tummocandroidassignment.ui.presentation.component
 
+import androidx.compose.material.Badge
+import androidx.compose.material.BadgedBox
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
 import androidx.compose.material.Icon
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.tummocandroidassignment.ui.navigation.screen.BottomNavItemScreen
+import com.example.tummocandroidassignment.ui.presentation.screen.cart.CartViewModel
 import com.example.tummocandroidassignment.ui.theme.Green
 
 @Composable
 fun BottomBar(
     modifier: Modifier = Modifier,
     navController: NavController,
+    cartViewModel: CartViewModel = hiltViewModel()
 ) {
     val navigationItems = listOf(
         BottomNavItemScreen.Home,
@@ -31,6 +37,8 @@ fun BottomBar(
     val currentRoute = navBackStackEntry?.destination?.route
     val bottomBarDestination = navigationItems.any { it.route == currentRoute }
 
+    val productCartList by cartViewModel.productCartList.collectAsState()
+
     if (bottomBarDestination) {
         BottomNavigation(
             backgroundColor = Color.White,
@@ -40,7 +48,15 @@ fun BottomBar(
             navigationItems.forEach { item ->
                 BottomNavigationItem(
                     icon = {
-                        Icon(imageVector = item.icon, contentDescription = item.title)
+                        if(productCartList.isNotEmpty() && item.route == "cart_screen"){
+                            BadgedBox(badge = { Badge(backgroundColor = Green) { Text("${productCartList.size}") } }) {
+                                Icon(imageVector = item.icon, contentDescription = item.title)
+                            }
+                        }else{
+                            Icon(imageVector = item.icon, contentDescription = item.title)
+                        }
+
+
                     },
                     label = {
                         Text(

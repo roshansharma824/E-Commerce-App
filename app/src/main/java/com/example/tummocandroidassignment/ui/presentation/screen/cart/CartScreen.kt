@@ -43,7 +43,20 @@ fun CartScreen(
         ListContentCart(
             cartProducts = productCartList,
             onClickDeleteCart = { productItem ->
-                cartViewModel.deleteCart(productItem.copy(isCart = false))
+                val quantity = productItem.quantity
+
+                if (quantity>1){
+                    cartViewModel.addCart(productItem.copy(quantity = quantity-1 ))
+                }else{
+                    cartViewModel.deleteCart(productItem.copy(isCart = false))
+                }
+
+
+
+            },
+            onClickToCart = { productItem ->
+                val quantity = productItem.quantity
+                cartViewModel.addCart(productItem.copy(quantity = quantity+1 ))
             }
         )
     }

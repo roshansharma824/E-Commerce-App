@@ -20,6 +20,10 @@ class SplashViewModel @Inject constructor(
     private val _onBoardingIsCompleted = MutableStateFlow(false)
     val onBoardingIsCompleted: StateFlow<Boolean> = _onBoardingIsCompleted
 
+    fun insertProducts() = viewModelScope.launch {
+        useCases.insertProductsUseCase.invoke(DataDummy.generateDummyProduct())
+    }
+
     init {
         viewModelScope.launch {
 //            useCases.insertProductsUseCase.invoke(DataDummy.generateDummyProduct())

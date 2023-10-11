@@ -18,5 +18,5 @@ data class ProductItem(
     val review: Double,
     var isCart: Boolean = false,
     var isFavorite:Boolean = false,
-    var quantity:Int = 0,
+    var quantity:Int = 1,
 )

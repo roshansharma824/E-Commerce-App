@@ -93,9 +93,6 @@ fun ProductCard(
 
 
 
-
-
-
                 Text(
                     text = productItem.title,
                     fontFamily = GilroyFontFamily,

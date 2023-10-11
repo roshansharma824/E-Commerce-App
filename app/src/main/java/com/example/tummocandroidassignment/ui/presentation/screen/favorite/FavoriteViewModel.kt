@@ -1,5 +1,6 @@
 package com.example.tummocandroidassignment.ui.presentation.screen.favorite
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.tummocandroidassignment.ui.domain.model.ProductItem
@@ -36,6 +37,13 @@ class FavoriteViewModel @Inject constructor(
     fun deleteFavorite(productItem: ProductItem) {
         viewModelScope.launch(Dispatchers.IO) {
             useCases.deleteFavorite.invoke(productItem)
+        }
+    }
+
+    fun addCart(productItem: ProductItem) {
+        Log.e("1234",productItem.quantity.toString())
+        viewModelScope.launch(Dispatchers.IO) {
+            useCases.addCartUseCase.invoke(productItem)
         }
     }
 

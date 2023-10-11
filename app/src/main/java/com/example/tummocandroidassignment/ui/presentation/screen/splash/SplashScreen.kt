@@ -12,6 +12,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.scale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -23,12 +24,22 @@ import com.example.tummocandroidassignment.ui.navigation.screen.Screen
 import com.example.tummocandroidassignment.ui.theme.Green
 import kotlinx.coroutines.delay
 import com.example.tummocandroidassignment.R
+import com.example.tummocandroidassignment.ui.utils.PreferencesManager
 
 @Composable
 fun SplashScreen(
     navController: NavHostController,
     splashViewModel: SplashViewModel = hiltViewModel()
 ) {
+    val context = LocalContext.current
+    val preferencesManager = remember { PreferencesManager(context) }
+    val data = remember { mutableStateOf(preferencesManager.getData("firstRun")) }
+    preferencesManager.saveData("firstRun", true)
+
+    if (!data.value) {
+        splashViewModel.insertProducts()
+    }
+
     val onBoardingIsCompleted by splashViewModel.onBoardingIsCompleted.collectAsState()
     val scale = remember { Animatable(0f) }
 
