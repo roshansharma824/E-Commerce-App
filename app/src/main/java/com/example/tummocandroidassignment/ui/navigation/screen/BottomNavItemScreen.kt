@@ -1,6 +1,7 @@
 package com.example.tummocandroidassignment.ui.navigation.screen
 
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Search
@@ -11,7 +12,7 @@ sealed class BottomNavItemScreen(val route: String, val icon: ImageVector, val t
 
     object Home : BottomNavItemScreen("home_screen", Icons.Default.Home, "Shop")
 
-    object Explore : BottomNavItemScreen("explore_screen", Icons.Default.Search, "Explore")
+    object Favorite : BottomNavItemScreen("favorite_screen", Icons.Default.Favorite, "Favorite")
 
     object Cart : BottomNavItemScreen("cart_screen", Icons.Default.ShoppingCart, "Cart")
 

@@ -1,11 +1,10 @@
-package com.example.tummocandroidassignment.ui.presentation.screen.explore
+package com.example.tummocandroidassignment.ui.presentation.screen.favorite
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.grid.GridCells
-import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
-import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -15,18 +14,17 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.tummocandroidassignment.R
-import com.example.tummocandroidassignment.ui.presentation.common.card.CategoryCard
+import com.example.tummocandroidassignment.ui.presentation.common.card.FavoriteCard
 import com.example.tummocandroidassignment.ui.presentation.component.SearchViewBar
 import com.example.tummocandroidassignment.ui.theme.Black
 import com.example.tummocandroidassignment.ui.theme.DIMENS_10dp
-import com.example.tummocandroidassignment.ui.theme.DIMENS_12dp
 import com.example.tummocandroidassignment.ui.theme.DIMENS_16dp
 import com.example.tummocandroidassignment.ui.theme.GilroyFontFamily
 import com.example.tummocandroidassignment.ui.theme.TEXT_SIZE_18sp
 import com.example.tummocandroidassignment.ui.utils.DataDummy
 
 @Composable
-fun ExploreScreen(
+fun FavoriteScreen(
     modifier: Modifier = Modifier
 ) {
     Scaffold { paddingValues ->
@@ -46,14 +44,14 @@ fun ExploreScreen(
 
             SearchViewBar(hint = stringResource(id = R.string.search_category))
 
-            LazyVerticalGrid(
+            LazyColumn(
                 modifier = Modifier.padding(start = DIMENS_16dp, end = DIMENS_16dp),
-                columns = GridCells.Fixed(2),
+//                columns = GridCells.Fixed(2),
                 verticalArrangement = Arrangement.spacedBy(DIMENS_10dp),
-                horizontalArrangement = Arrangement.spacedBy(DIMENS_12dp),
+//                horizontalArrangement = Arrangement.spacedBy(DIMENS_12dp),
             ) {
-                items(DataDummy.generateDummyCategories()) { categoryItem ->
-                    CategoryCard(categoryItem = categoryItem)
+                items(DataDummy.generateDummyProduct()) { productItem ->
+                    FavoriteCard(productItem = productItem)
                 }
             }
         }
@@ -62,6 +60,6 @@ fun ExploreScreen(
 
 @Preview
 @Composable
-fun ExploreScreenPreview() {
-    ExploreScreen()
+fun FavoriteScreenPreview() {
+    FavoriteScreen()
 }

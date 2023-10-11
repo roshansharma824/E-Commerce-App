@@ -10,7 +10,7 @@ import com.example.tummocandroidassignment.ui.navigation.screen.Screen
 import com.example.tummocandroidassignment.ui.presentation.screen.about.AboutScreen
 import com.example.tummocandroidassignment.ui.presentation.screen.cart.CartScreen
 import com.example.tummocandroidassignment.ui.presentation.screen.detail.DetailScreen
-import com.example.tummocandroidassignment.ui.presentation.screen.explore.ExploreScreen
+import com.example.tummocandroidassignment.ui.presentation.screen.favorite.FavoriteScreen
 import com.example.tummocandroidassignment.ui.presentation.screen.home.HomeScreen
 import com.example.tummocandroidassignment.ui.presentation.screen.search.SearchScreen
 import com.example.tummocandroidassignment.ui.utils.Constants.PRODUCT_ARGUMENT_KEY
@@ -26,8 +26,8 @@ fun MainNavGraph(navController: NavHostController) {
         composable(route = BottomNavItemScreen.Home.route) {
             HomeScreen(navController = navController)
         }
-        composable(route = BottomNavItemScreen.Explore.route) {
-            ExploreScreen()
+        composable(route = BottomNavItemScreen.Favorite.route) {
+            FavoriteScreen()
         }
         composable(route = BottomNavItemScreen.Cart.route) {
             CartScreen()
