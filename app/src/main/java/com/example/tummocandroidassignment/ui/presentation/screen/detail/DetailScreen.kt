@@ -23,12 +23,12 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
+import coil.compose.rememberAsyncImagePainter
 import com.example.tummocandroidassignment.R
 import com.example.tummocandroidassignment.ui.domain.model.ProductItem
 import com.example.tummocandroidassignment.ui.presentation.common.SpacerDividerContent
 import com.example.tummocandroidassignment.ui.presentation.common.card.FavoriteButton
 import com.example.tummocandroidassignment.ui.presentation.component.RatingBar
-import com.example.tummocandroidassignment.ui.presentation.screen.home.HomeViewModel
 import com.example.tummocandroidassignment.ui.theme.Black
 import com.example.tummocandroidassignment.ui.theme.DIMENS_16dp
 import com.example.tummocandroidassignment.ui.theme.DIMENS_1dp
@@ -92,7 +92,7 @@ fun DetailScreen(
                     DetailButtonAddCart(
                         productItem = it,
                         onClickToCart = { productItem ->
-                            mContext.showToastShort("Success Add To Cart ${productItem.title}")
+                            mContext.showToastShort("Success Add To Cart ${productItem.name}")
                             detailViewModel.addCart(productItem.copy(isCart = true))
                         }
                     )
@@ -114,7 +114,7 @@ fun DetailContentImageHeader(
             .fillMaxWidth(),
     ) {
         Image(
-            painter = painterResource(id = productItem.image),
+            painter = rememberAsyncImagePainter(productItem.icon),
             contentDescription = stringResource(id = R.string.image_product),
             modifier = Modifier.height(DIMENS_353dp)
         )
@@ -138,7 +138,7 @@ fun DetailContentDescription(
                 modifier = Modifier.weight(1f)
             ) {
                 Text(
-                    text = productItem.title,
+                    text = productItem.name,
                     fontFamily = GilroyFontFamily,
                     fontWeight = FontWeight.Bold,
                     color = Black,
@@ -182,7 +182,7 @@ fun DetailContentDescription(
         Spacer(modifier = Modifier.height(DIMENS_8dp))
 
         Text(
-            text = productItem.description,
+            text = productItem.name,
             fontFamily = GilroyFontFamily,
             fontWeight = FontWeight.Medium,
             color = GraySecondTextColor,
@@ -301,13 +301,14 @@ fun DetailScreenImageHeaderPreview() {
     DetailContentImageHeader(
         ProductItem(
             id = 1,
-            title = "Organic Bananas",
-            description = "Apples are nutritious. Apples may be good for weight loss. apples may be good for your heart. As part of a healtful and varied diet.",
-            image = R.drawable.product2,
+            name = "Organic Bananas",
+
+            icon = "",
             unit = "7pcs, Priceg",
             price = 4.99,
             nutritions = "100gr",
-            review = 4.0
+            review = 4.0,
+            categories = ""
         )
     )
 }
@@ -319,13 +320,13 @@ fun DetailContentDescriptionPreview() {
         productItem =
         ProductItem(
             id = 1,
-            title = "Organic Bananas",
-            description = "Apples are nutritious. Apples may be good for weight loss. apples may be good for your heart. As part of a healtful and varied diet.",
-            image = R.drawable.product2,
+            name = "Organic Bananas",
+            icon = "",
             unit = "7pcs, Priceg",
             price = 4.99,
             nutritions = "100gr",
-            review = 4.0
+            review = 4.0,
+            categories = ""
         ),
         onClickDeleteFavorite = {},
         onClickToFavorite = {}

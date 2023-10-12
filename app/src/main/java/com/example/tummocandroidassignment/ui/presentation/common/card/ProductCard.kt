@@ -25,28 +25,21 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import coil.compose.rememberAsyncImagePainter
 import com.example.tummocandroidassignment.R
 import com.example.tummocandroidassignment.ui.domain.model.ProductItem
 import com.example.tummocandroidassignment.ui.navigation.screen.Screen
 import com.example.tummocandroidassignment.ui.theme.Black
 import com.example.tummocandroidassignment.ui.theme.DIMENS_108dp
-import com.example.tummocandroidassignment.ui.theme.DIMENS_10dp
 import com.example.tummocandroidassignment.ui.theme.DIMENS_12dp
 import com.example.tummocandroidassignment.ui.theme.*
-import com.example.tummocandroidassignment.ui.theme.DIMENS_174dp
-import com.example.tummocandroidassignment.ui.theme.DIMENS_20dp
 import com.example.tummocandroidassignment.ui.theme.DIMENS_24dp
-import com.example.tummocandroidassignment.ui.theme.DIMENS_46dp
 import com.example.tummocandroidassignment.ui.theme.DIMENS_4dp
 import com.example.tummocandroidassignment.ui.theme.DIMENS_6dp
-import com.example.tummocandroidassignment.ui.theme.DIMENS_80dp
 import com.example.tummocandroidassignment.ui.theme.GilroyFontFamily
 import com.example.tummocandroidassignment.ui.theme.GrayBorderStroke
-import com.example.tummocandroidassignment.ui.theme.GraySecondTextColor
 import com.example.tummocandroidassignment.ui.theme.Green
-import com.example.tummocandroidassignment.ui.theme.TEXT_SIZE_12sp
 import com.example.tummocandroidassignment.ui.theme.TEXT_SIZE_16sp
-import com.example.tummocandroidassignment.ui.theme.TEXT_SIZE_18sp
 
 @Composable
 fun ProductCard(
@@ -72,7 +65,7 @@ fun ProductCard(
             Row {
 
                 Image(
-                    painter = painterResource(id = productItem.image),
+                    painter = rememberAsyncImagePainter(productItem.icon),
                     contentDescription = stringResource(R.string.image_product),
                     modifier = Modifier
                         .fillMaxWidth(0.8f)
@@ -94,7 +87,7 @@ fun ProductCard(
 
 
                 Text(
-                    text = productItem.title,
+                    text = productItem.name,
                     fontFamily = GilroyFontFamily,
                     fontWeight = FontWeight.Bold,
                     color = Black,
@@ -190,13 +183,13 @@ fun ItemProductPreview() {
     ProductCard(
         productItem = ProductItem(
             id = 1,
-            title = "Organic Bananas",
-            description = "",
-            image = R.drawable.product10,
+            name = "Organic Bananas",
+            icon = "https://cdn-icons-png.flaticon.com/128/3659/3659899.png",
             unit = "7pcs, Priceg",
             price = 4.99,
             nutritions = "100gr",
-            review = 4.0
+            review = 4.0,
+            categories = "Food"
         ),
         navController = rememberNavController(),
         onClickToCart = {},

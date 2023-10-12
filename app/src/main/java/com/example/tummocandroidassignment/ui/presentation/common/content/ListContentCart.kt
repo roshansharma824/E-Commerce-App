@@ -34,6 +34,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import coil.compose.rememberAsyncImagePainter
 import com.example.tummocandroidassignment.R
 import com.example.tummocandroidassignment.ui.domain.model.ProductItem
 import com.example.tummocandroidassignment.ui.presentation.common.rememberCheckIndeterminateSmall
@@ -112,7 +113,7 @@ fun ContentCart(
                     modifier = Modifier
                         .size(width = DIMENS_64dp, height = DIMENS_64dp)
                         .padding(start = DIMENS_8dp),
-                    painter = painterResource(id = productItem.image),
+                    painter = rememberAsyncImagePainter(productItem.icon),
                     contentDescription = stringResource(id = R.string.image_product)
                 )
 
@@ -123,7 +124,7 @@ fun ContentCart(
                         .padding(start = DIMENS_16dp),
                 ) {
                     Text(
-                        text = productItem.title,
+                        text = productItem.name,
                         fontFamily = GilroyFontFamily,
                         fontWeight = FontWeight.Bold,
                         color = Black,
@@ -214,13 +215,13 @@ fun ContentCart(
 fun ContentCartPreview() {
     ContentCart(productItem = ProductItem(
         id = 1,
-        title = "Organic Bananas",
-        description = "Apples are nutritious. Apples may be good for weight loss. apples may be good for your heart. As part of a healtful and varied diet.",
-        image = R.drawable.product2,
+        name = "Organic Bananas",
+        icon = "https://cdn-icons-png.flaticon.com/128/3659/3659899.png",
         unit = "7pcs, Priceg",
         price = 4.99,
         nutritions = "100gr",
-        review = 4.0
+        review = 4.0,
+        categories = "Food"
     ), onClickDeleteCart = {}, onClickToCart = {})
 }
 

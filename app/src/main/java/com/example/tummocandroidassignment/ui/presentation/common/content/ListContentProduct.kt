@@ -17,8 +17,6 @@ import com.example.tummocandroidassignment.ui.domain.model.ProductItem
 import com.example.tummocandroidassignment.ui.presentation.common.card.ProductCard
 import com.example.tummocandroidassignment.ui.theme.Black
 import com.example.tummocandroidassignment.ui.theme.DIMENS_16dp
-import com.example.tummocandroidassignment.ui.theme.DIMENS_2dp
-import com.example.tummocandroidassignment.ui.theme.*
 import com.example.tummocandroidassignment.ui.theme.GilroyFontFamily
 import com.example.tummocandroidassignment.ui.theme.Green
 import com.example.tummocandroidassignment.ui.theme.TEXT_SIZE_12sp
@@ -84,33 +82,33 @@ fun ListContentProductPreview() {
         products = listOf(
             ProductItem(
                 id = 1,
-                title = "Organic Bananas",
-                description = "",
-                image = R.drawable.product10,
+                name = "Organic Bananas",
+                icon = "https://cdn-icons-png.flaticon.com/128/3659/3659899.png",
                 unit = "7pcs, Priceg",
                 price = 4.99,
                 nutritions = "100gr",
-                review = 4.0
+                review = 4.0,
+                categories = "Food"
             ),
             ProductItem(
                 id = 1,
-                title = "Organic Bananas",
-                description = "",
-                image = R.drawable.product10,
+                name = "Organic Bananas",
+                icon = "https://cdn-icons-png.flaticon.com/128/3659/3659899.png",
                 unit = "7pcs, Priceg",
                 price = 4.99,
                 nutritions = "100gr",
-                review = 4.0
+                review = 4.0,
+                categories = "Food"
             ),
             ProductItem(
                 id = 1,
-                title = "Organic Bananas",
-                description = "",
-                image = R.drawable.product10,
+                name = "Organic Bananas",
+                icon = "https://cdn-icons-png.flaticon.com/128/3659/3659899.png",
                 unit = "7pcs, Priceg",
                 price = 4.99,
                 nutritions = "100gr",
-                review = 4.0
+                review = 4.0,
+                categories = "Food"
             )
         ),
         navController = rememberNavController(),

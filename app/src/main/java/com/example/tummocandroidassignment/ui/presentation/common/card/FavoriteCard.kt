@@ -15,7 +15,6 @@ import androidx.compose.material.Text
 import com.example.tummocandroidassignment.R
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
-import androidx.compose.material.icons.filled.KeyboardArrowRight
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -26,8 +25,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import coil.compose.rememberAsyncImagePainter
 import com.example.tummocandroidassignment.ui.domain.model.ProductItem
-import com.example.tummocandroidassignment.ui.navigation.screen.Screen
 import com.example.tummocandroidassignment.ui.theme.Black
 import com.example.tummocandroidassignment.ui.theme.*
 import com.example.tummocandroidassignment.ui.theme.DIMENS_1dp
@@ -35,7 +34,6 @@ import com.example.tummocandroidassignment.ui.theme.DIMENS_20dp
 import com.example.tummocandroidassignment.ui.theme.DIMENS_6dp
 import com.example.tummocandroidassignment.ui.theme.GilroyFontFamily
 import com.example.tummocandroidassignment.ui.theme.GrayBorderStroke
-import com.example.tummocandroidassignment.ui.theme.GraySecondTextColor
 import com.example.tummocandroidassignment.ui.theme.TEXT_SIZE_16sp
 
 @Composable
@@ -66,7 +64,7 @@ fun FavoriteCard(
                 modifier = Modifier.fillMaxWidth()
             ) {
                 Image(
-                    painter = painterResource(id = productItem.image),
+                    painter = rememberAsyncImagePainter(productItem.icon),
                     contentDescription = stringResource(id = R.string.image_product),
                     contentScale = ContentScale.Inside,
                 )
@@ -80,7 +78,7 @@ fun FavoriteCard(
                         .align(Alignment.CenterVertically)
                 ) {
                     Text(
-                        text = productItem.title,
+                        text = productItem.name,
                         fontFamily = GilroyFontFamily,
                         fontWeight = FontWeight.Bold,
                         color = Black,
@@ -140,13 +138,13 @@ fun FavoriteCardPreview() {
     FavoriteCard(
         productItem = ProductItem(
             id = 1,
-            title = "Organic Bananas",
-            description = "",
-            image = R.drawable.product10,
+            name = "Organic Bananas",
+            icon = "https://cdn-icons-png.flaticon.com/128/3659/3659899.png",
             unit = "7pcs, Priceg",
             price = 4.99,
             nutritions = "100gr",
-            review = 4.0
+            review = 4.0,
+            categories = "Food"
         ),
         onClickDeleteFavorite = {},
         onClickToCart = {}
