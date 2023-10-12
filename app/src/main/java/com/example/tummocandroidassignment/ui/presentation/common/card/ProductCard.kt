@@ -90,7 +90,8 @@ fun ProductCard(
                     fontFamily = EComFontFamily,
                     fontWeight = FontWeight.Bold,
                     color = Black,
-                    fontSize = TEXT_SIZE_16sp
+                    fontSize = TEXT_SIZE_16sp,
+                    maxLines = 1,
                 )
 
                 Spacer(modifier = Modifier.height(DIMENS_6dp))
