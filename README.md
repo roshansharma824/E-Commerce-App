@@ -18,7 +18,7 @@ This project uses jetpack compose technology,  in short jetpack Compose is Andro
 
 Clone or Download and Open it into Android Studio or other IDE
 ```
-    https://github.com/roshansharma824/Tummoc-Android-Assignment.git  
+    https://github.com/roshansharma824/E-Commerce-App.git  
 ```
 
 Download Apk
