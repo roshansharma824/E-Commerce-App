@@ -21,6 +21,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.rememberAsyncImagePainter
@@ -57,7 +58,34 @@ fun DetailScreen(
     val mContext = LocalContext.current
     val selectedProduct by detailViewModel.selectedProduct.collectAsState()
 
-    Scaffold { padding ->
+    Scaffold(
+        topBar = {
+            // inside top bar we are specifying background color.
+            TopAppBar(backgroundColor = Green,
+                // along with that we are specifying title for our top bar.
+                title = {
+                    // in the top bar we are specifying tile as a text
+                    Text(
+                        // on below line we are specifying
+                        // text to display in top app bar.
+                        text = "Detail",
+
+                        // on below line we are specifying
+                        // modifier to fill max width.
+                        modifier = Modifier.fillMaxWidth(),
+
+                        // on below line we are
+                        // specifying text alignment.
+                        textAlign = TextAlign.Center,
+
+                        // on below line we are
+                        // specifying color for our text.
+                        color = Color.White
+                    )
+                }
+            )
+        } ,
+    ) { padding ->
         Column {
             Column(
                 modifier = modifier

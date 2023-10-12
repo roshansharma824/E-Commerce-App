@@ -16,6 +16,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
+import coil.compose.rememberAsyncImagePainter
 import com.example.tummocandroidassignment.ui.domain.model.CategoryItem
 import com.example.tummocandroidassignment.ui.theme.BackgroundCategory3
 import com.example.tummocandroidassignment.ui.theme.Black
@@ -48,7 +49,7 @@ fun CategoryCard(
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(DIMENS_80dp),
-                painter = painterResource(id = categoryItem.image),
+                painter = rememberAsyncImagePainter(categoryItem.image),
                 contentDescription = stringResource(R.string.image_category)
             )
 
@@ -72,8 +73,8 @@ fun CategoryCard(
 fun CategoryCardPreview() {
     CategoryCard(
         categoryItem = CategoryItem(
-            title = "Fresh Fruits\n" + "& Vegetable",
-            image = R.drawable.category2,
+            title = "https://cdn-icons-png.flaticon.com/128/2553/2553691.png",
+            image ="",
             background = BackgroundCategory3
         )
     )

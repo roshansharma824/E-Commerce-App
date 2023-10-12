@@ -7,6 +7,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Icon
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
+import androidx.compose.material.TopAppBar
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.LocationOn
 import androidx.compose.runtime.Composable
@@ -19,6 +20,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
@@ -33,6 +35,7 @@ import com.example.tummocandroidassignment.ui.theme.DIMENS_24dp
 import com.example.tummocandroidassignment.ui.theme.DIMENS_8dp
 import com.example.tummocandroidassignment.ui.theme.GilroyFontFamily
 import com.example.tummocandroidassignment.ui.theme.GrayThirdTextColor
+import com.example.tummocandroidassignment.ui.theme.Green
 import com.example.tummocandroidassignment.ui.theme.TEXT_SIZE_12sp
 import com.example.tummocandroidassignment.ui.utils.showToastShort
 
@@ -47,7 +50,34 @@ fun HomeScreen(
     val searchQuery by homeViewModel.searchQuery
     val allProducts by homeViewModel.productList.collectAsState()
 
-    Scaffold { padding ->
+    Scaffold(
+        topBar = {
+            // inside top bar we are specifying background color.
+            TopAppBar(backgroundColor = Green,
+                // along with that we are specifying title for our top bar.
+                title = {
+                    // in the top bar we are specifying tile as a text
+                    Text(
+                        // on below line we are specifying
+                        // text to display in top app bar.
+                        text = "Home",
+
+                        // on below line we are specifying
+                        // modifier to fill max width.
+                        modifier = Modifier.fillMaxWidth(),
+
+                        // on below line we are
+                        // specifying text alignment.
+                        textAlign = TextAlign.Center,
+
+                        // on below line we are
+                        // specifying color for our text.
+                        color = Color.White
+                    )
+                }
+            )
+        } ,
+    ) { padding ->
         Column(
             modifier = modifier
                 .verticalScroll(rememberScrollState())
