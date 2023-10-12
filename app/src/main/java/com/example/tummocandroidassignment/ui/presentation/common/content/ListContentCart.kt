@@ -193,7 +193,7 @@ fun ContentCart(
 
 
                     Text(
-                        text = "₹${productItem.price}",
+                        text = "₹${productItem.price * productItem.quantity}",
                         fontFamily = EComFontFamily,
                         fontWeight = FontWeight.Bold,
                         color = Black,
