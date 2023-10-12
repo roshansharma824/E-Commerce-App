@@ -34,4 +34,11 @@ class DetailViewModel @Inject constructor(
         useCases.addCartUseCase.invoke(productItem)
     }
 
+    fun addFavorite(productItem: ProductItem) = viewModelScope.launch {
+        useCases.addFavoriteUseCase.invoke(productItem)
+    }
+    fun deleteFavorite(productItem: ProductItem) = viewModelScope.launch {
+        useCases.deleteFavorite.invoke(productItem)
+    }
+
 }

@@ -1,5 +1,6 @@
 package com.example.tummocandroidassignment.ui.presentation.screen.detail
 
+import android.content.Context
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -25,7 +26,9 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.tummocandroidassignment.R
 import com.example.tummocandroidassignment.ui.domain.model.ProductItem
 import com.example.tummocandroidassignment.ui.presentation.common.SpacerDividerContent
+import com.example.tummocandroidassignment.ui.presentation.common.card.FavoriteButton
 import com.example.tummocandroidassignment.ui.presentation.component.RatingBar
+import com.example.tummocandroidassignment.ui.presentation.screen.home.HomeViewModel
 import com.example.tummocandroidassignment.ui.theme.Black
 import com.example.tummocandroidassignment.ui.theme.DIMENS_16dp
 import com.example.tummocandroidassignment.ui.theme.DIMENS_1dp
@@ -67,7 +70,20 @@ fun DetailScreen(
 
                     Spacer(modifier = Modifier.height(DIMENS_24dp))
 
-                    DetailContentDescription(productItem = productItem)
+                    DetailContentDescription(productItem = productItem, onClickToFavorite = { productItem ->
+                        clickToFavorite(
+                            mContext,
+                            productItem,
+                            detailViewModel
+                        )
+                    },
+                        onClickDeleteFavorite = { productItem ->
+                            clickDeleteFavorite(
+                                mContext,
+                                productItem,
+                                detailViewModel
+                            )
+                        })
                 }
             }
 
@@ -108,7 +124,9 @@ fun DetailContentImageHeader(
 @Composable
 fun DetailContentDescription(
     modifier: Modifier = Modifier,
-    productItem: ProductItem
+    productItem: ProductItem,
+    onClickToFavorite: (ProductItem) ->Unit,
+    onClickDeleteFavorite: (ProductItem) -> Unit,
 ) {
     Column(
         modifier = modifier.padding(start = DIMENS_16dp, end = DIMENS_16dp)
@@ -137,11 +155,7 @@ fun DetailContentDescription(
                     fontSize = TEXT_SIZE_12sp,
                 )
             }
-            Icon(
-                painter = painterResource(id = R.drawable.ic_favorite_border),
-                contentDescription = stringResource(R.string.image_favorite),
-                modifier = Modifier.align(Alignment.CenterVertically)
-            )
+            FavoriteButton(productItem = productItem, onClickToFavorite = onClickToFavorite , onClickDeleteFavorite = onClickDeleteFavorite )
         }
 
         Spacer(modifier = Modifier.height(DIMENS_8dp))
@@ -272,6 +286,14 @@ fun DetailButtonAddCart(
     }
 }
 
+fun clickToFavorite(context: Context, productItem: ProductItem, viewModel: DetailViewModel) {
+    viewModel.addFavorite(productItem.copy(isFavorite = true))
+}
+
+fun clickDeleteFavorite(context: Context, productItem: ProductItem, viewModel: DetailViewModel) {
+    viewModel.deleteFavorite(productItem.copy(isFavorite = true))
+}
+
 
 @Preview
 @Composable
@@ -293,7 +315,8 @@ fun DetailScreenImageHeaderPreview() {
 @Preview
 @Composable
 fun DetailContentDescriptionPreview() {
-    DetailContentImageHeader(
+    DetailContentDescription(
+        productItem =
         ProductItem(
             id = 1,
             title = "Organic Bananas",
@@ -303,6 +326,8 @@ fun DetailContentDescriptionPreview() {
             price = 4.99,
             nutritions = "100gr",
             review = 4.0
-        )
+        ),
+        onClickDeleteFavorite = {},
+        onClickToFavorite = {}
     )
 }
