@@ -68,7 +68,7 @@ fun DetailScreen(
                     Text(
                         // on below line we are specifying
                         // text to display in top app bar.
-                        text = "Detail",
+                        text = stringResource(id = R.string.detail),
 
                         // on below line we are specifying
                         // modifier to fill max width.

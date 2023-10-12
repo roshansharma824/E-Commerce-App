@@ -60,7 +60,7 @@ fun HomeScreen(
                     Text(
                         // on below line we are specifying
                         // text to display in top app bar.
-                        text = "Home",
+                        text = stringResource(id = R.string.home),
 
                         // on below line we are specifying
                         // modifier to fill max width.

@@ -51,7 +51,7 @@ fun FavoriteScreen(
                     Text(
                         // on below line we are specifying
                         // text to display in top app bar.
-                        text = "Favorite",
+                        text = stringResource(R.string.favorite),
 
                         // on below line we are specifying
                         // modifier to fill max width.

@@ -41,7 +41,7 @@ fun CartScreen(
                     Text(
                         // on below line we are specifying
                         // text to display in top app bar.
-                        text = "My Cart",
+                        text = stringResource(R.string.my_cart),
 
                         // on below line we are specifying
                         // modifier to fill max width.
