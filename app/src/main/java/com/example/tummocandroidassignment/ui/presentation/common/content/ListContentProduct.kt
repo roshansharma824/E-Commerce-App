@@ -17,7 +17,7 @@ import com.example.tummocandroidassignment.ui.domain.model.ProductItem
 import com.example.tummocandroidassignment.ui.presentation.common.card.ProductCard
 import com.example.tummocandroidassignment.ui.theme.Black
 import com.example.tummocandroidassignment.ui.theme.DIMENS_16dp
-import com.example.tummocandroidassignment.ui.theme.GilroyFontFamily
+import com.example.tummocandroidassignment.ui.theme.EComFontFamily
 import com.example.tummocandroidassignment.ui.theme.Green
 import com.example.tummocandroidassignment.ui.theme.TEXT_SIZE_12sp
 import com.example.tummocandroidassignment.ui.theme.TEXT_SIZE_24sp
@@ -43,7 +43,7 @@ fun ListContentProduct(
         ) {
             Text(
                 text = title,
-                fontFamily = GilroyFontFamily,
+                fontFamily = EComFontFamily,
                 fontWeight = FontWeight.SemiBold,
                 fontSize = TEXT_SIZE_24sp,
                 color = Black
@@ -51,7 +51,7 @@ fun ListContentProduct(
             Text(
                 modifier = Modifier.align(Alignment.CenterVertically),
                 text = stringResource(id = R.string.see_all),
-                fontFamily = GilroyFontFamily,
+                fontFamily = EComFontFamily,
                 fontWeight = FontWeight.SemiBold,
                 fontSize = TEXT_SIZE_12sp,
                 color = Green

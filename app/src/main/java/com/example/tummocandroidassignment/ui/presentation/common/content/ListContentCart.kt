@@ -29,7 +29,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
@@ -49,7 +48,7 @@ import com.example.tummocandroidassignment.ui.theme.DIMENS_68dp
 import com.example.tummocandroidassignment.ui.theme.DIMENS_6dp
 import com.example.tummocandroidassignment.ui.theme.DIMENS_80dp
 import com.example.tummocandroidassignment.ui.theme.DIMENS_8dp
-import com.example.tummocandroidassignment.ui.theme.GilroyFontFamily
+import com.example.tummocandroidassignment.ui.theme.EComFontFamily
 import com.example.tummocandroidassignment.ui.theme.GrayBorderStroke
 import com.example.tummocandroidassignment.ui.theme.GraySecondTextColor
 import com.example.tummocandroidassignment.ui.theme.Green
@@ -125,7 +124,7 @@ fun ContentCart(
                 ) {
                     Text(
                         text = productItem.name,
-                        fontFamily = GilroyFontFamily,
+                        fontFamily = EComFontFamily,
                         fontWeight = FontWeight.Bold,
                         color = Black,
                         fontSize = TEXT_SIZE_16sp
@@ -134,8 +133,8 @@ fun ContentCart(
                     Spacer(modifier = Modifier.height(DIMENS_4dp))
 
                     Text(
-                        text = "${productItem.price}",
-                        fontFamily = GilroyFontFamily,
+                        text = "₹${productItem.price}",
+                        fontFamily = EComFontFamily,
                         fontWeight = FontWeight.Medium,
                         color = GraySecondTextColor,
                         fontSize = TEXT_SIZE_12sp,
@@ -168,7 +167,7 @@ fun ContentCart(
                         }
                         Text(
                             text = "${productItem.quantity}",
-                            fontFamily = GilroyFontFamily,
+                            fontFamily = EComFontFamily,
                             fontWeight = FontWeight.Bold,
                             color = Black,
                             fontSize = TEXT_SIZE_12sp,
@@ -194,8 +193,8 @@ fun ContentCart(
 
 
                     Text(
-                        text = "${productItem.price}",
-                        fontFamily = GilroyFontFamily,
+                        text = "₹${productItem.price}",
+                        fontFamily = EComFontFamily,
                         fontWeight = FontWeight.Bold,
                         color = Black,
                         fontSize = TEXT_SIZE_12sp,

@@ -8,7 +8,7 @@
     <string name="menu_about">About</string>
     <string name="image_on_boarding">Image On Boarding</string>
     <string name="welcome_to_store">Welcome to \n our store</string>
-    <string name="desc_welcome">Ger your groceries in as fast as one hour</string>
+    <string name="desc_welcome">Ger your product in as fast as one hour</string>
     <string name="get_started">Get Started</string>
     <string name="search_store">Search Store</string>
     <string name="home">Home</string>
@@ -33,8 +33,8 @@
     <string name="best_selling">Best Selling</string>
     <string name="find_products">Find Products</string>
     <string name="image_profile">Image Profile</string>
-    <string name="name_profile">Hari Agus Widakdo</string>
-    <string name="email_profile">haryagus97@gmail.com</string>
+    <string name="name_profile">Roshan Sharma</string>
+    <string name="email_profile">roshansharma824@gmail.com</string>
     <string name="image_about">Image About</string>
     <string name="logout">Logout</string>
     <string name="image_delete">Image Delete</string>

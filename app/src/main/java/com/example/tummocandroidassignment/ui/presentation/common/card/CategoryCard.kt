@@ -11,7 +11,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import com.example.tummocandroidassignment.R
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -27,7 +26,7 @@ import com.example.tummocandroidassignment.ui.theme.DIMENS_1dp
 import com.example.tummocandroidassignment.ui.theme.DIMENS_20dp
 import com.example.tummocandroidassignment.ui.theme.DIMENS_40dp
 import com.example.tummocandroidassignment.ui.theme.DIMENS_80dp
-import com.example.tummocandroidassignment.ui.theme.GilroyFontFamily
+import com.example.tummocandroidassignment.ui.theme.EComFontFamily
 import com.example.tummocandroidassignment.ui.theme.TEXT_SIZE_16sp
 
 @Composable
@@ -57,7 +56,7 @@ fun CategoryCard(
 
             Text(
                 text = categoryItem.title,
-                fontFamily = GilroyFontFamily,
+                fontFamily = EComFontFamily,
                 fontWeight = FontWeight.Bold,
                 fontSize = TEXT_SIZE_16sp,
                 color = Black,

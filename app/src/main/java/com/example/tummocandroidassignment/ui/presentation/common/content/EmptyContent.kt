@@ -15,7 +15,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.example.tummocandroidassignment.ui.theme.Black
 import com.example.tummocandroidassignment.ui.theme.DIMENS_16dp
 import com.example.tummocandroidassignment.ui.theme.DIMENS_248dp
-import com.example.tummocandroidassignment.ui.theme.GilroyFontFamily
+import com.example.tummocandroidassignment.ui.theme.EComFontFamily
 import com.example.tummocandroidassignment.ui.theme.TEXT_SIZE_18sp
 
 @Composable
@@ -39,7 +39,7 @@ fun EmptyContent(
         Text(
             modifier = modifier.fillMaxWidth(),
             text = stringResource(R.string.oops_no_data),
-            fontFamily = GilroyFontFamily,
+            fontFamily = EComFontFamily,
             fontWeight = FontWeight.Bold,
             fontSize = TEXT_SIZE_18sp,
             color = Black,

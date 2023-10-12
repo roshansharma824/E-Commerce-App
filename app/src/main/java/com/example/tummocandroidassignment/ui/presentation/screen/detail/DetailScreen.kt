@@ -16,13 +16,14 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.blur
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.rememberAsyncImagePainter
 import com.example.tummocandroidassignment.R
@@ -38,7 +39,7 @@ import com.example.tummocandroidassignment.ui.theme.DIMENS_353dp
 import com.example.tummocandroidassignment.ui.theme.DIMENS_4dp
 import com.example.tummocandroidassignment.ui.theme.DIMENS_6dp
 import com.example.tummocandroidassignment.ui.theme.DIMENS_8dp
-import com.example.tummocandroidassignment.ui.theme.GilroyFontFamily
+import com.example.tummocandroidassignment.ui.theme.EComFontFamily
 import com.example.tummocandroidassignment.ui.theme.GrayBackground
 import com.example.tummocandroidassignment.ui.theme.GrayBackgroundSecond
 import com.example.tummocandroidassignment.ui.theme.GraySecondTextColor
@@ -60,31 +61,28 @@ fun DetailScreen(
 
     Scaffold(
         topBar = {
-            // inside top bar we are specifying background color.
-            TopAppBar(backgroundColor = Green,
-                // along with that we are specifying title for our top bar.
+            TopAppBar(
+                backgroundColor = Color.Transparent,
+                contentColor = Color.Transparent,
+                elevation = 0.dp,
                 title = {
-                    // in the top bar we are specifying tile as a text
                     Text(
-                        // on below line we are specifying
-                        // text to display in top app bar.
                         text = stringResource(id = R.string.detail),
-
-                        // on below line we are specifying
-                        // modifier to fill max width.
                         modifier = Modifier.fillMaxWidth(),
-
-                        // on below line we are
-                        // specifying text alignment.
                         textAlign = TextAlign.Center,
-
-                        // on below line we are
-                        // specifying color for our text.
                         color = Color.White
                     )
-                }
+                },
+                modifier = Modifier.background(
+                    Brush.horizontalGradient(
+                        colors = listOf(
+                            Color.Cyan,
+                            Green
+                        )
+                    )
+                ),
             )
-        } ,
+        },
     ) { padding ->
         Column {
             Column(
@@ -167,7 +165,7 @@ fun DetailContentDescription(
             ) {
                 Text(
                     text = productItem.name,
-                    fontFamily = GilroyFontFamily,
+                    fontFamily = EComFontFamily,
                     fontWeight = FontWeight.Bold,
                     color = Black,
                     fontSize = TEXT_SIZE_24sp
@@ -177,7 +175,7 @@ fun DetailContentDescription(
 
                 Text(
                     text = productItem.unit,
-                    fontFamily = GilroyFontFamily,
+                    fontFamily = EComFontFamily,
                     fontWeight = FontWeight.Medium,
                     color = GraySecondTextColor,
                     fontSize = TEXT_SIZE_12sp,
@@ -189,8 +187,8 @@ fun DetailContentDescription(
         Spacer(modifier = Modifier.height(DIMENS_8dp))
 
         Text(
-            text = "$${productItem.price}",
-            fontFamily = GilroyFontFamily,
+            text = "₹${productItem.price}",
+            fontFamily = EComFontFamily,
             fontWeight = FontWeight.Bold,
             color = Black,
             modifier = Modifier.align(Alignment.End),
@@ -201,7 +199,7 @@ fun DetailContentDescription(
 
         Text(
             text = stringResource(R.string.product_detail),
-            fontFamily = GilroyFontFamily,
+            fontFamily = EComFontFamily,
             fontWeight = FontWeight.SemiBold,
             color = Black,
             fontSize = TEXT_SIZE_16sp,
@@ -211,7 +209,7 @@ fun DetailContentDescription(
 
         Text(
             text = productItem.name,
-            fontFamily = GilroyFontFamily,
+            fontFamily = EComFontFamily,
             fontWeight = FontWeight.Medium,
             color = GraySecondTextColor,
             fontSize = TEXT_SIZE_12sp,
@@ -225,7 +223,7 @@ fun DetailContentDescription(
         ) {
             Text(
                 text = stringResource(R.string.nutritions),
-                fontFamily = GilroyFontFamily,
+                fontFamily = EComFontFamily,
                 fontWeight = FontWeight.SemiBold,
                 color = Black,
                 fontSize = TEXT_SIZE_16sp,
@@ -242,7 +240,7 @@ fun DetailContentDescription(
             ) {
                 Text(
                     text = productItem.nutritions,
-                    fontFamily = GilroyFontFamily,
+                    fontFamily = EComFontFamily,
                     fontWeight = FontWeight.SemiBold,
                     color = GraySecondTextColor,
                     fontSize = TEXT_SIZE_10sp,
@@ -267,7 +265,7 @@ fun DetailContentDescription(
         ) {
             Text(
                 text = stringResource(R.string.review),
-                fontFamily = GilroyFontFamily,
+                fontFamily = EComFontFamily,
                 fontWeight = FontWeight.SemiBold,
                 color = Black,
                 fontSize = TEXT_SIZE_16sp,
@@ -305,7 +303,7 @@ fun DetailButtonAddCart(
     ) {
         Text(
             text = stringResource(R.string.add_to_cart),
-            fontFamily = GilroyFontFamily,
+            fontFamily = EComFontFamily,
             fontWeight = FontWeight.SemiBold,
             fontSize = TEXT_SIZE_18sp,
             color = Color.White,

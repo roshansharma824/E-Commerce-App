@@ -24,7 +24,7 @@ import com.example.tummocandroidassignment.ui.theme.DIMENS_1dp
 import com.example.tummocandroidassignment.ui.theme.DIMENS_20dp
 import com.example.tummocandroidassignment.ui.theme.DIMENS_32dp
 import com.example.tummocandroidassignment.ui.theme.DIMENS_8dp
-import com.example.tummocandroidassignment.ui.theme.GilroyFontFamily
+import com.example.tummocandroidassignment.ui.theme.EComFontFamily
 import com.example.tummocandroidassignment.ui.theme.GrayBorderStroke
 import com.example.tummocandroidassignment.ui.theme.TEXT_SIZE_16sp
 import com.example.tummocandroidassignment.ui.utils.DataDummy
@@ -73,7 +73,7 @@ fun ItemAbout(
                     .padding(start = DIMENS_8dp)
                     .weight(1f),
                 text = aboutItem.title,
-                fontFamily = GilroyFontFamily,
+                fontFamily = EComFontFamily,
                 fontSize = TEXT_SIZE_16sp,
                 fontWeight = FontWeight.SemiBold,
                 color = Black

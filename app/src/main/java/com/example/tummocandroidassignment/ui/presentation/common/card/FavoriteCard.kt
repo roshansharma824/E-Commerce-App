@@ -20,7 +20,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
@@ -32,7 +31,7 @@ import com.example.tummocandroidassignment.ui.theme.*
 import com.example.tummocandroidassignment.ui.theme.DIMENS_1dp
 import com.example.tummocandroidassignment.ui.theme.DIMENS_20dp
 import com.example.tummocandroidassignment.ui.theme.DIMENS_6dp
-import com.example.tummocandroidassignment.ui.theme.GilroyFontFamily
+import com.example.tummocandroidassignment.ui.theme.EComFontFamily
 import com.example.tummocandroidassignment.ui.theme.GrayBorderStroke
 import com.example.tummocandroidassignment.ui.theme.TEXT_SIZE_16sp
 
@@ -79,7 +78,7 @@ fun FavoriteCard(
                 ) {
                     Text(
                         text = productItem.name,
-                        fontFamily = GilroyFontFamily,
+                        fontFamily = EComFontFamily,
                         fontWeight = FontWeight.Bold,
                         color = Black,
                         fontSize = TEXT_SIZE_16sp,
@@ -88,8 +87,8 @@ fun FavoriteCard(
                     Spacer(modifier = Modifier.height(DIMENS_6dp))
 
                     Text(
-                        text = "${productItem.price}",
-                        fontFamily = GilroyFontFamily,
+                        text = "₹${productItem.price}",
+                        fontFamily = EComFontFamily,
                         fontWeight = FontWeight.Bold,
                         color = Black,
                         fontSize = TEXT_SIZE_16sp,

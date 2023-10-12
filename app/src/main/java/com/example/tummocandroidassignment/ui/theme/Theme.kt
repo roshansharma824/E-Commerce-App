@@ -19,7 +19,7 @@ private val LightColorPalette = lightColors(
 )
 
 @Composable
-fun GroceriesAppTheme(
+fun EComAppTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit
 ) {

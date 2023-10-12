@@ -10,7 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
 import com.example.tummocandroidassignment.ui.navigation.graph.RootNavigationGraph
-import com.example.tummocandroidassignment.ui.theme.GroceriesAppTheme
+import com.example.tummocandroidassignment.ui.theme.EComAppTheme
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -18,7 +18,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            GroceriesAppTheme {
+            EComAppTheme {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background

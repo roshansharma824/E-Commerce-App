@@ -19,7 +19,7 @@ import com.example.tummocandroidassignment.ui.theme.DIMENS_16dp
 import com.example.tummocandroidassignment.ui.theme.DIMENS_2dp
 import com.example.tummocandroidassignment.ui.theme.DIMENS_40dp
 import com.example.tummocandroidassignment.ui.theme.DIMENS_80dp
-import com.example.tummocandroidassignment.ui.theme.GilroyFontFamily
+import com.example.tummocandroidassignment.ui.theme.EComFontFamily
 import com.example.tummocandroidassignment.ui.theme.GraySecondTextColor
 import com.example.tummocandroidassignment.ui.theme.TEXT_SIZE_12sp
 import com.example.tummocandroidassignment.ui.theme.TEXT_SIZE_18sp
@@ -53,14 +53,14 @@ fun ProfileCard(
         ) {
             Text(
                 text = stringResource(R.string.name_profile),
-                fontFamily = GilroyFontFamily,
+                fontFamily = EComFontFamily,
                 fontWeight = FontWeight.Bold,
                 fontSize = TEXT_SIZE_18sp,
                 color = Black
             )
             Text(
                 text = stringResource(R.string.email_profile),
-                fontFamily = GilroyFontFamily,
+                fontFamily = EComFontFamily,
                 fontWeight = FontWeight.Normal,
                 fontSize = TEXT_SIZE_12sp,
                 color = GraySecondTextColor

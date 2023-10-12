@@ -9,7 +9,6 @@ data class ProductItem(
     @PrimaryKey(autoGenerate = false)
     val id: Int,
     val name: String,
-
     val icon: String,
     val unit: String,
     val price: Double,

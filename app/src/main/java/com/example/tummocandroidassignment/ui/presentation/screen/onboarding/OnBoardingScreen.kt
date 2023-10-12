@@ -26,7 +26,7 @@ import com.example.tummocandroidassignment.ui.theme.DIMENS_16dp
 import com.example.tummocandroidassignment.ui.theme.DIMENS_40dp
 import com.example.tummocandroidassignment.ui.theme.DIMENS_68dp
 import com.example.tummocandroidassignment.ui.theme.DIMENS_90dp
-import com.example.tummocandroidassignment.ui.theme.GilroyFontFamily
+import com.example.tummocandroidassignment.ui.theme.EComFontFamily
 import com.example.tummocandroidassignment.ui.theme.GrayTextColor
 import com.example.tummocandroidassignment.ui.theme.Green
 import com.example.tummocandroidassignment.ui.theme.TEXT_SIZE_16sp
@@ -75,7 +75,7 @@ fun OnBoarding(
             ) {
                 Text(
                     text = stringResource(id = R.string.welcome_to_store),
-                    fontFamily = GilroyFontFamily,
+                    fontFamily = EComFontFamily,
                     fontWeight = FontWeight.SemiBold,
                     fontSize = TEXT_SIZE_49sp,
                     color = Color.White,
@@ -83,7 +83,7 @@ fun OnBoarding(
                 )
                 Text(
                     text = stringResource(R.string.desc_welcome),
-                    fontFamily = GilroyFontFamily,
+                    fontFamily = EComFontFamily,
                     fontWeight = FontWeight.Medium,
                     fontSize = TEXT_SIZE_16sp,
                     color = GrayTextColor,
@@ -103,7 +103,7 @@ fun OnBoarding(
                 ) {
                     Text(
                         text = stringResource(R.string.get_started),
-                        fontFamily = GilroyFontFamily,
+                        fontFamily = EComFontFamily,
                         fontWeight = FontWeight.SemiBold,
                         fontSize = TEXT_SIZE_18sp,
                         color = Color.White

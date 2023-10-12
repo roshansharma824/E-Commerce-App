@@ -25,7 +25,7 @@ import com.example.tummocandroidassignment.R
 import com.example.tummocandroidassignment.ui.theme.Black
 import com.example.tummocandroidassignment.ui.theme.DIMENS_16dp
 import com.example.tummocandroidassignment.ui.theme.DIMENS_48dp
-import com.example.tummocandroidassignment.ui.theme.GilroyFontFamily
+import com.example.tummocandroidassignment.ui.theme.EComFontFamily
 import com.example.tummocandroidassignment.ui.theme.GrayBackground
 import com.example.tummocandroidassignment.ui.theme.GraySecondTextColor
 import com.example.tummocandroidassignment.ui.theme.TEXT_SIZE_12sp
@@ -65,7 +65,7 @@ fun SearchViewBar(
         placeholder = {
             Text(
                 text = hint,
-                fontFamily = GilroyFontFamily,
+                fontFamily = EComFontFamily,
                 fontWeight = FontWeight.SemiBold,
                 color = GraySecondTextColor,
                 fontSize = TEXT_SIZE_12sp
@@ -73,7 +73,7 @@ fun SearchViewBar(
         },
         singleLine = true,
         textStyle = TextStyle(
-            fontFamily = GilroyFontFamily,
+            fontFamily = EComFontFamily,
             fontWeight = FontWeight.SemiBold,
             color = Black,
             fontSize = TEXT_SIZE_12sp

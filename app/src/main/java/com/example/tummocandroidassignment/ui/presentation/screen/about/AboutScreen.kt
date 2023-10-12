@@ -24,7 +24,7 @@ import com.example.tummocandroidassignment.ui.theme.DIMENS_24dp
 import com.example.tummocandroidassignment.ui.theme.DIMENS_2dp
 import com.example.tummocandroidassignment.ui.theme.DIMENS_32dp
 import com.example.tummocandroidassignment.ui.theme.DIMENS_48dp
-import com.example.tummocandroidassignment.ui.theme.GilroyFontFamily
+import com.example.tummocandroidassignment.ui.theme.EComFontFamily
 import com.example.tummocandroidassignment.ui.theme.GrayBackground
 import com.example.tummocandroidassignment.ui.theme.Green
 
@@ -77,7 +77,7 @@ fun ButtonLogout(
             text = stringResource(id = R.string.logout),
             color = Green,
             textAlign = TextAlign.Center,
-            fontFamily = GilroyFontFamily,
+            fontFamily = EComFontFamily,
             fontWeight = FontWeight.SemiBold,
         )
     }
