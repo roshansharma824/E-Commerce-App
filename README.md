@@ -27,9 +27,9 @@ Clone or Download and Open it into Android Studio or other IDE
 
 
 # Preview App
-| Splash Screen  | Favorite Screen                                             | Home Screen | Detail Screen |
-| ------------- |-------------------------------------------------------------| ------------- | ------------- |
-| <img src="assets/splash_page.png" height=350 width=2000/>  | <img src="assets/favorite_page.png" height=350 width=2000/> | <img src="assets/home_page.png" height=350 width=2000/> | <img src="assets/detail_page.PNG" height=350 width=2000/> |
+| Splash Screen  | Favorite Screen | Home Screen | Detail Screen |
+| ------------- | ------------- | ------------- | ------------- |
+| <img src="assets/splash_page.png" height=350 width=2000/>  | <img src="assets/favorite_page.png" height=350 width=2000/> | <img src="assets/home_page.png" height=350 width=2000/> | <img src="assets/detail_page.png" height=350 width=2000/> |
 
 | Cart Screen | Profile Screen | Empty Screen |
 | ------------- | ------------- | ------------- |
