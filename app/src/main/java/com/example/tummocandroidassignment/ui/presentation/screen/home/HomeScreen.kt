@@ -49,6 +49,11 @@ fun HomeScreen(
     val mContext = LocalContext.current
     val searchQuery by homeViewModel.searchQuery
     val allProducts by homeViewModel.productList.collectAsState()
+    val allFoodProducts by homeViewModel.foodProductList.collectAsState()
+    val allBeveragesProducts by homeViewModel.beveragesProductList.collectAsState()
+    val allHygieneEssentialsProducts by homeViewModel.hygieneEssentialsProductList.collectAsState()
+    val allPoojaDailyNeedsProducts by homeViewModel.poojaDailyNeedsProductList.collectAsState()
+    val allElectronicItemsProducts by homeViewModel.electronicItemsProductList.collectAsState()
 
     Scaffold(
         topBar = {
@@ -83,21 +88,13 @@ fun HomeScreen(
                 .verticalScroll(rememberScrollState())
                 .padding(padding)
         ) {
-            HeaderLocationHome()
-
-            SearchViewBar(
-                hint = stringResource(id = R.string.search_store),
-                query = searchQuery,
-                onValueChange = {
-                    if (it.isNotEmpty()) navController.navigate(Screen.Search.route)
-                }
-            )
+            Spacer(modifier = Modifier.height(DIMENS_24dp))
 
             SliderBanner()
 
             ListContentProduct(
-                title = stringResource(id = R.string.exclusive_offer),
-                products = allProducts,
+                title = stringResource(id = R.string.food),
+                products = allFoodProducts,
                 navController = navController,
                 onClickToCart = { productItem ->
                     clickToCart(mContext, productItem, homeViewModel)
@@ -121,8 +118,82 @@ fun HomeScreen(
             Spacer(modifier = Modifier.height(DIMENS_24dp))
 
             ListContentProduct(
-                title = stringResource(id = R.string.best_selling),
-                products = allProducts.sortedByDescending { it.id },
+                title = stringResource(id = R.string.beverages),
+                products = allBeveragesProducts,
+                navController = navController,
+                onClickToCart = { productItem ->
+                    clickToCart(mContext, productItem, homeViewModel)
+                },
+                onClickToFavorite = { productItem ->
+                    clickToFavorite(
+                        mContext,
+                        productItem,
+                        homeViewModel
+                    )
+                },
+                onClickDeleteFavorite = { productItem ->
+                    clickDeleteFavorite(
+                        mContext,
+                        productItem,
+                        homeViewModel
+                    )
+                }
+            )
+            Spacer(modifier = Modifier.height(DIMENS_24dp))
+
+            ListContentProduct(
+                title = stringResource(id = R.string.hygiene_essentials),
+                products = allHygieneEssentialsProducts,
+                navController = navController,
+                onClickToCart = { productItem ->
+                    clickToCart(mContext, productItem, homeViewModel)
+                },
+                onClickToFavorite = { productItem ->
+                    clickToFavorite(
+                        mContext,
+                        productItem,
+                        homeViewModel
+                    )
+                },
+                onClickDeleteFavorite = { productItem ->
+                    clickDeleteFavorite(
+                        mContext,
+                        productItem,
+                        homeViewModel
+                    )
+                }
+            )
+
+            Spacer(modifier = Modifier.height(DIMENS_24dp))
+
+            ListContentProduct(
+                title = stringResource(id = R.string.pooja_daily_needs),
+                products = allPoojaDailyNeedsProducts,
+                navController = navController,
+                onClickToCart = { productItem ->
+                    clickToCart(mContext, productItem, homeViewModel)
+                },
+                onClickToFavorite = { productItem ->
+                    clickToFavorite(
+                        mContext,
+                        productItem,
+                        homeViewModel
+                    )
+                },
+                onClickDeleteFavorite = { productItem ->
+                    clickDeleteFavorite(
+                        mContext,
+                        productItem,
+                        homeViewModel
+                    )
+                }
+            )
+
+            Spacer(modifier = Modifier.height(DIMENS_24dp))
+
+            ListContentProduct(
+                title = stringResource(id = R.string.electronic_items),
+                products = allElectronicItemsProducts,
                 navController = navController,
                 onClickToCart = { productItem ->
                     clickToCart(mContext, productItem, homeViewModel)

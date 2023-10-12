@@ -330,7 +330,6 @@ fun DetailScreenImageHeaderPreview() {
         ProductItem(
             id = 1,
             name = "Organic Bananas",
-
             icon = "",
             unit = "7pcs, Priceg",
             price = 4.99,

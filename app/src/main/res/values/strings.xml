@@ -42,4 +42,9 @@
     <string name="favorite">Favorite</string>
     <string name="image_content_empty">Image Content Empty</string>
     <string name="oops_no_data">Ooops! No Data</string>
+    <string name="food">Food</string>
+    <string name="beverages">Beverages</string>
+    <string name="hygiene_essentials">Hygiene Essentials</string>
+    <string name="pooja_daily_needs">Pooja Daily Needs</string>
+    <string name="electronic_items">Electronic Items</string>
 </resources>
