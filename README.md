@@ -25,11 +25,16 @@ Clone or Download and Open it into Android Studio or other IDE
     https://github.com/roshansharma824/Tummoc-Android-Assignment.git  
 ```
 
+Download Apk
+```
+   https://drive.google.com/file/d/1bvEtRJg60fhG74Y4BiRAOSzuGmnf27F1/view?usp=sharing
+```
+
 
 # Preview App
-| Splash Screen  | Favorite Screen                                             | Home Screen | Detail Screen |
-| ------------- |-------------------------------------------------------------| ------------- | ------------- |
-| <img src="assets/splash_page.png" height=350 width=2000/>  | <img src="assets/favorite_page.png" height=350 width=2000/> | <img src="assets/home_page.png" height=350 width=2000/> | <img src="assets/detail_page.PNG" height=350 width=2000/> |
+| Splash Screen  | Favorite Screen | Home Screen | Detail Screen |
+| ------------- | ------------- | ------------- | ------------- |
+| <img src="assets/splash_page.png" height=350 width=2000/>  | <img src="assets/favorite_page.png" height=350 width=2000/> | <img src="assets/home_page.png" height=350 width=2000/> | <img src="assets/detail_page.png" height=350 width=2000/> |
 
 | Cart Screen | Profile Screen | Empty Screen |
 | ------------- | ------------- | ------------- |
