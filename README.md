@@ -16,15 +16,9 @@ This project uses jetpack compose technology,  in short jetpack Compose is Andro
 
 ## Installation
 
-Clone or Download and Open it into Android Studio or other IDE
-```
-    https://github.com/roshansharma824/E-Commerce-App.git  
-```
+Clone or Download and [Open](https://github.com/roshansharma824/E-Commerce-App.git  ) it into Android Studio or other IDE
 
-Download Apk
-```
-   https://drive.google.com/file/d/1bvEtRJg60fhG74Y4BiRAOSzuGmnf27F1/view?usp=sharing
-```
+Download [Apk](https://drive.google.com/file/d/1bvEtRJg60fhG74Y4BiRAOSzuGmnf27F1/view?usp=sharing)
 
 
 # Preview App
